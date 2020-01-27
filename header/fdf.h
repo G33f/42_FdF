@@ -77,26 +77,26 @@ void			qn_rot_rev(t_point_l *st, t_QN *qn, float agl);
 t_QN			*rotate_e(t_QN *vec, t_point_l *st);
 void			rot(t_dot *p1, t_dot *p2, t_point_l *st);
 
-t_QN			*qn_min(t_QN *s)
-t_QN			*qn_sum(t_QN *q1, t_QN *q2)
-void			magn(t_QN *st)
-t_QN			*new_qn(float w, float x, float y, float z)
+t_QN			*qn_min(t_QN *s);
+t_QN			*qn_sum(t_QN *q1, t_QN *q2);
+void			magn(t_QN *st);
+t_QN			*new_qn(float w, float x, float y, float z);
 
-int				mod(int r)
-t_point_l		*inicalizaciya(void)
-void			zoom(t_dot *p1, t_dot *p2, t_point_l *st)
-void			back_sh(t_dot *p1, t_dot *p2, t_point_l *st)
-void			shift(t_dot *p1, t_dot *p2, t_point_l *st)
+int				mod(int r);
+t_point_l		*inicalizaciya(void);
+void			zoom(t_dot *p1, t_dot *p2, t_point_l *st);
+void			back_sh(t_dot *p1, t_dot *p2, t_point_l *st);
+void			shift(t_dot *p1, t_dot *p2, t_point_l *st);
 
-void			color(char *b1, t_point_l *st)
-void			put_img_pixel(t_point_l *data, int x, int y)
+void			color(char *b1, t_point_l *st);
+void			put_img_pixel(t_point_l *data, int x, int y);
 
-int				mouse_release(int kay, int x, int y, t_point_l *st)
-int				mouse_move(int x, int y, t_point_l *st)
-int				mouse_press(int kay, int x, int y, t_point_l *st)
+int				mouse_release(int kay, int x, int y, t_point_l *st);
+int				mouse_move(int x, int y, t_point_l *st);
+int				mouse_press(int kay, int x, int y, t_point_l *st);
 
-int				kay_prass_1(int kay, t_point_l *st)
-int				kay_prass_2(int kay, t_point_l *st)
+int				kay_prass_1(int kay, t_point_l *st);
+int				kay_prass_2(int kay, t_point_l *st);
 
 
 #endif
