@@ -12,7 +12,9 @@
 
 NAME = libft.a
 
-FLAGS =	-Wall -Wextra -Werror -I ./libft.h
+FLAGS =	-Wall -Wextra -Werror
+
+LIB_INC = $(addprefix $(INCLUDES), libft.h)
 
 SRC =           ft_bzero.c\
         		ft_memccpy.c\
@@ -93,7 +95,7 @@ $(NAME): $(OBJ)
 	ar rc $(NAME) $(OBJ)
 	ranlib $(NAME)
 
-%.o: %.c
+%.o: %.c $(LIB_INC)
 	gcc $(FLAGS) -I $(INCLUDES) -c $<
 
 clean:

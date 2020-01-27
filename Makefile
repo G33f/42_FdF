@@ -22,20 +22,28 @@ SEARCH_WILDCARDS:= $(addsuffix /*.c, $(SOURSE_DIRS))
 
 OBJECTS			= $(notdir $(patsubst %.c,%.o, $(wildcard $(SEARCH_WILDCARDS))))
 
-GNL				= libft/get_next_line.c
+LIB_DIR		= ./libft/
 
-SRC_LIBFT		= libft
+LIB_OBJS		= $(addprefix $(LIB_DIR), $(LIB_OBJ))
+
+LIB_OBJ			= *.o
+
+FDF_INC			= header/fdf.h
+
+LIB_INC			= header/libft.h
 
 all: $(NAME)
 
-$(NAME): $(OBJECTS)
-	make -C $(SRC_LIBFT)
-	gcc $(GNL) $^ -o $@ $(framework)
+$(NAME): $(LIB_OBJS) $(OBJECTS)
+	gcc $(OBJECTS) -o $@ $(framework)
 
 VPATH := $(SOURSE_DIRS)
 
-%.o: %.c
-	gcc $(FLAGS) $(compile_flags) -c $< -I header/
+$(LIB_DIR)%.o: $(LIB_DIR)%.c $(LIB_INC)
+	make -C $(LIB_DIR)
+
+%.o: %.c $(FDF_INC)
+	gcc $(FLAGS) -c $< -I header/
 
 clean:
 	make clean -C libft
