@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../header/libft.h"
 
 int		ft_cu_wards(char const *s, char c)
 {

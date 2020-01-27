@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../header/libft.h"
 
 void	*ft_lstnelem(t_list *lst, size_t s)
 {

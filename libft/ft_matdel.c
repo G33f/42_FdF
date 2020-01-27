@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 
-#include "libft.h"
+#include "../header/libft.h"
 
 void	ft_matdel(void **as, int i)
 {

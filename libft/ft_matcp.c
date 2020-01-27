@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../header/libft.h"
 
 void	**ft_matcp(void **dest, const void **source, size_t n1, size_t n2)
 {
