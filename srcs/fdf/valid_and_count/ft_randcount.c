@@ -101,6 +101,7 @@ int			ft_starter(char *file_name, t_point_l *data)
 	close(fd);
 	data->z_list[i] = NULL;
 	z_count(data);
-	data->zoom = 5;
+	data->zoom = data->wind->win_size / ((max(max(mod(data->z_min),
+			mod(data->z_max)), max(data->x_leng, data->y_short))) * 1.5);
 	return (1);
 }

@@ -13,7 +13,6 @@
 #ifndef FDF_H
 
 # define FDF_H
-# define MAX(a, b) (a > b) ? a : b;
 
 # define TEXT_COLOR			0xEAEAEA
 # define BACKGROUND			0x222222
@@ -106,6 +105,8 @@ void			magn(t_qn *st);
 t_qn			*new_qn(float w, float x, float y, float z);
 
 int				mod(int r);
+int				max(int a, int b);
+
 t_point_l		*inicalizaciya(void);
 void			zoom(t_dot *p1, t_dot *p2, t_point_l *st);
 void			back_sh(t_dot *p1, t_dot *p2, t_point_l *st);
