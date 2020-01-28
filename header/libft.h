@@ -79,7 +79,8 @@ double				ft_sqrt(double num);
 double				ft_pow(double num, int pow);
 char				*ft_strndup(const char *s1, size_t n);
 void				ft_matdel(void **as, int i);
-void				**ft_matcp(void **dest, const void **source, size_t n1, size_t n2);
+void				**ft_matcp(void **dest, const void **source, size_t n1,
+		size_t n2);
 void				ft_putmat(const char **mat);
 int					get_next_line(const int fd, char **line);
 void				ft_strdel(char **as);
@@ -90,15 +91,6 @@ typedef struct		s_list
 	size_t			content_size;
 	struct s_list	*next;
 }					t_list;
-
-typedef struct			s_tetrimino
-{
-	size_t				numb;
-	size_t				x;
-	size_t				y;
-	char				**content;
-	struct s_tetrimino	*next;
-}						t_tet;
 
 t_list				*ft_lstnew(void const *content, size_t content_size);
 void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));

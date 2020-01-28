@@ -10,10 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header/libft.h"
-#include <stdio.h>
-#include <fcntl.h>
-
+#include "libft.h"
 
 int			line_copy(char **line, char *content, char c)
 {

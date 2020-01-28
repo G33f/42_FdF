@@ -10,61 +10,74 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	FDF_H
+#ifndef FDF_H
 
-#define	FDF_H
-#define MAX(a, b) (a > b) ? a : b
+# define FDF_H
+# define MAX(a, b) (a > b) ? a : b;
 
-#include "libft.h"
-#include <mlx.h>
-#include <math.h>
-#include <stdio.h>
+# define TEXT_COLOR			0xEAEAEA
+# define BACKGROUND			0x222222
+# define MENU_BACKGROUND	0x1E1E1E
 
-typedef struct			s_wind
+# define COLOR_DISCO		0x9A1F6A
+# define COLOR_BRICK_RED	0xC2294E
+# define COLOR_FLAMINGO		0xEC4B27
+# define COLOR_JAFFA		0xEF8633
+# define COLOR_SAFFRON		0xF3AF3D
+
+# include "libft.h"
+# include <mlx.h>
+# include <math.h>
+# include <stdio.h>
+
+typedef struct	s_wind
 {
-	void				*win;
-	int					iso;
-	int					win_size;
-}						t_wind;
+	void		*win;
+	int			iso;
+	int			win_size;
+}				t_wind;
 
-typedef struct			s_qn
+typedef struct	s_qn
 {
-	float 				w;
-	float 				x;
-	float 				y;
-	float 				z;
-}						t_qn;
+	float		w;
+	float		x;
+	float		y;
+	float		z;
+}				t_qn;
 
-typedef struct			s_dot
+typedef struct	s_dot
 {
-	float				x;
-	float				y;
-	float				z;
-}						t_dot;
+	float		x;
+	float		y;
+	float		z;
+	int			color;
+}				t_dot;
 
-typedef struct			s_point_l
+typedef struct	s_point_l
 {
-	int					x_leng;
-	int					y_short;
-	int					**z_list;
-	int					zoom;
-	int					color;
-	int					bpp;
-	int					size_line;
-	int					endian;
-	int					kay;
-	int					x;
-	int					y;
-	float				x_sdvig;
-	float				y_sdvig;
-	float 				magnit;
-	void				*mlx;
-	void				*img_ptr;
-	char 				*img_data;
-	t_wind				*wind;
-	t_qn				*rot;
-	t_qn				*vek;
-}						t_point_l;
+	int			x_leng;
+	int			y_short;
+	int			**z_list;
+	int			zoom;
+	int			color;
+	int			bpp;
+	int			size_line;
+	int			endian;
+	int			kay;
+	int			x;
+	int			y;
+	float		z_max;
+	float		z_min;
+	float		x_sdvig;
+	float		y_sdvig;
+	float		magnit;
+	void		*mlx;
+	void		*img_ptr;
+	char		*img_data;
+	t_wind		*wind;
+	t_qn		*rot;
+	t_qn		*vek;
+}				t_point_l;
 
 int				y_count(char *file_name);
 int				x_count(char *file_name);
@@ -98,8 +111,13 @@ void			zoom(t_dot *p1, t_dot *p2, t_point_l *st);
 void			back_sh(t_dot *p1, t_dot *p2, t_point_l *st);
 void			shift(t_dot *p1, t_dot *p2, t_point_l *st);
 
-void			color(char *b1, t_point_l *st);
-void			put_img_pixel(t_point_l *data, int x, int y);
+void			put_img_pixel(t_point_l *st, t_dot p1, t_dot p2, t_dot c1);
+void			z_count(t_point_l *st);
+int				get_z_color(int start, int end, int corect);
+void			put_img_pixel(t_point_l *st, t_dot p1, t_dot p2, t_dot c1);
+int				get_color(t_dot start, t_dot end, t_dot current);
+int				get_light(int start, int end, double percentage);
+double			percent(int start, int end, int current);
 
 int				mouse_release(int kay, int x, int y, t_point_l *st);
 int				mouse_move(int x, int y, t_point_l *st);

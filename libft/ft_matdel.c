@@ -10,14 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#include "../header/libft.h"
+#include "libft.h"
 
 void	ft_matdel(void **as, int i)
 {
 	if (!as || !*as)
 		return ;
-	while(i)
+	while (i)
 	{
 		ft_memdel(&as[i]);
 		as[i] = NULL;

@@ -10,13 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header/libft.h"
+#include "libft.h"
 
 void	ft_putmat(const char **mat)
 {
 	if (!mat)
 		return ;
-	while(*mat)
+	while (*mat)
 	{
 		ft_putstr(*mat);
 		ft_putchar('\n');

@@ -73,10 +73,14 @@ void	ft_drow_line(t_dot *pl1, t_dot *pl2, t_point_l *st)
 	zoom(&p1, &p2, st);
 	rot(&p1, &p2, st);
 	shift(&p1, &p2, st);
-	if (p2.x < 0 || p2.y < 0 || p1.x < 0 || p1.y < 0
-	|| p2.x > st->wind->win_size || p1.x > st->wind->win_size
-	|| p2.y > st->wind->win_size || p1.y > st->wind->win_size)
+	if (p2.x < 0 || p2.y < 0 || p1.x < 0 || p1.y < 0 || p2.x >
+	st->wind->win_size || p1.x > st->wind->win_size || p2.y
+	> st->wind->win_size || p1.y > st->wind->win_size)
 		return ;
+	p1.z = st->z_list[(int)pl1->y][(int)pl1->x];
+	p2.z = st->z_list[(int)pl2->y][(int)pl2->x];
+	p1.color = get_z_color(st->z_min, st->z_max, p1.z);
+	p2.color = get_z_color(st->z_min, st->z_max, p2.z);
 	ready(&p1, &p2, st);
 }
 

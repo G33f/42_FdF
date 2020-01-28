@@ -12,6 +12,25 @@
 
 #include "fdf.h"
 
+void		z_count(t_point_l *st)
+{
+	int			i;
+	int			j;
+
+	i = 0;
+	while (st->y_short > ++i)
+	{
+		j = 0;
+		while (st->x_leng > ++j)
+		{
+			if (st->z_list[i][j] < st->z_min)
+				st->z_min = st->z_list[i][j];
+			if (st->z_list[i][j] > st->z_max)
+				st->z_max = st->z_list[i][j];
+		}
+	}
+}
+
 int			y_count(char *file_name)
 {
 	int		fd;
@@ -81,6 +100,7 @@ int			ft_starter(char *file_name, t_point_l *data)
 	}
 	close(fd);
 	data->z_list[i] = NULL;
+	z_count(data);
 	data->zoom = 5;
 	return (1);
 }
